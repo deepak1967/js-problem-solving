@@ -1,15 +1,12 @@
-let nums = [2,7,11,15];
+let nums = [3, 7, 2, 11, 15];
 
-let counter = 0;
 
 var twoSum = function (nums, target) {
 
     for (let i = 0; i < nums.length; i++) {
-        for (let j = 0; j < nums.length; j++) {
-            counter ++;
-            if (i === j) continue;
-            if (num = nums[i] + nums[j] === target) {
-                console.log(`Loop ran ${counter} times`);
+        for (let j = i + 1; j < nums.length; j++) {
+            let num = nums[i] + nums[j]
+            if (num === target) {
                 return [i, j];
             }
 
