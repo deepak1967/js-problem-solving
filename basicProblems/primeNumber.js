@@ -9,7 +9,7 @@ function isPrime(num) {
     return true;
 }
 
-// console.log(isPrime(131));
+console.log(isPrime(130));
 
 
 
