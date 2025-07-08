@@ -1,3 +1,26 @@
+// Formula: LCM(a, b) = (a * b) / HCF(a, b);
+
+var calculateLCM = function (a, b) {
+  let max = a > b ? a : b;
+  let min = a > b ? b : a;
+  let hcf = 1,
+    rem = 1,
+    lcm = 1;
+  for (let i = 0; i <= min || i <= max; i++) {
+    if (max % min != 0) {
+      rem = max % min;
+      max = min;
+      min = rem;
+      hcf *= rem;
+    } else {
+      hcf = min;
+      return hcf;
+    }
+  }
+  lcm = (a * b) / hcf;
+  return lcm;
+};
+
 var calculateLCM = function (num1, num2) {
   let count = 2,
     lcm = 1;
