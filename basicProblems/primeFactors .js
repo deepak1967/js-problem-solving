@@ -1,4 +1,4 @@
-var fact = function (num) {
+var primeFactors  = function (num) {
   let counter = 2,
     arr = [];
   for (let i = 0; i < num; i++) {
@@ -12,4 +12,4 @@ var fact = function (num) {
   return arr;
 };
 
-console.log(fact(21320));
+console.log(primeFactors (21320));
