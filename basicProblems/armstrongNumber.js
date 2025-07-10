@@ -18,4 +18,35 @@ var armstrongNumber = function (num) {
   }
 };
 
-console.log(armstrongNumber(1634));
+// console.log(armstrongNumber(1634));
+
+var armstrongNumberPrint = function (num) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
+    let isArmstrong = arm(i);
+    if (isArmstrong === true) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+
+console.log(armstrongNumberPrint(2000));
+
+
+var armstrongNumber = function (num) {
+  let sum = 0;
+  let temp = num;
+  while (temp > 0) {
+    let rem = temp % 10;
+    sum += rem * rem * rem;
+    temp = parseInt(temp / 10);
+  }
+  if (sum === num) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(armstrongNumber(153))
