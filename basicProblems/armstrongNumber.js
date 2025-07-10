@@ -20,10 +20,10 @@ var armstrongNumber = function (num) {
 
 // console.log(armstrongNumber(1634));
 
-var armstrongNumberPrint = function (num) {
+var armstrongNumberPrint = function (startNum, endNum) {
   let arr = [];
-  for (let i = 0; i < num; i++) {
-    let isArmstrong = arm(i);
+  for (let i = startNum; i < endNum; i++) {
+    let isArmstrong = armstrongNumber(i);
     if (isArmstrong === true) {
       arr.push(i);
     }
@@ -31,7 +31,7 @@ var armstrongNumberPrint = function (num) {
   return arr;
 }
 
-console.log(armstrongNumberPrint(2000));
+console.log(armstrongNumberPrint(100, 2000));
 
 
 var armstrongNumber = function (num) {
@@ -49,4 +49,4 @@ var armstrongNumber = function (num) {
   }
 }
 
-console.log(armstrongNumber(153))
+// console.log(armstrongNumber(153))
