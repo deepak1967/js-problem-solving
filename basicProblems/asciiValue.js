@@ -6,4 +6,4 @@ var asciiValue = function (string) {
     return result
 }
 
-console.log(findAsciiValue('abc'));
+console.log(asciiValue('a'));
