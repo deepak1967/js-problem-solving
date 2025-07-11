@@ -8,7 +8,8 @@ var isPrime = function (num) {
   return true;
 };
 
-console.log(isPrime(130));
+console.log(isPrime(131));
+
 
 // Print prime numbers
 
@@ -30,3 +31,31 @@ var primeNumber = function (num) {
 };
 
 console.log(primeNumber(10));
+
+
+// Print prime number another method
+
+var printPrimeNumber = function (num) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
+    const isPrime = checkPrimeNumber(i);
+    if (isPrime) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+
+var checkPrimeNumber = function (num) {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false
+    }
+
+  }
+  return true;
+}
+
+console.log(printPrimeNumber(10));
+
