@@ -12,7 +12,19 @@ var calculatePower = function (base, num) {
 
 console.log(calculatePower(3, 81));
 
-// calculate power using recursion
+// calculate number
+
+var calculatePower = function (base, power) {
+  let result = 1;
+  for (let i = 0; i < power; i++) {
+    result *= base;
+  }
+  return result;
+};
+
+console.log(calculatePower(3, 4));
+
+// calculate number using recursion
 
 var calculatePower = function (base, power) {
   if (power === 0) return 1;
@@ -21,7 +33,7 @@ var calculatePower = function (base, power) {
 
 console.log(calculatePower(3, 4));
 
-// calculate power using Math function
+// calculate number using Math function
 
 var calculatePower = function (base, power) {
   let num = Math.pow(base, power);
