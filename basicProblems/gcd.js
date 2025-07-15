@@ -22,6 +22,16 @@ var calculateHCF = function (num1, num2) {
 
 console.log(calculateHCF(12, 18));
 
+// Using recursion
+
+var calculateHCF = function (num1, num2) {
+  if (num2 === 0) return num1;
+  return calculateHCF(num2, num1 % num2)
+}
+
+console.log(calculateHCF(12, 18));
+
+
 var calculateHCF = function (a, b) {
   let max = a > b ? a : b;
   let min = a > b ? b : a;
