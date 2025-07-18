@@ -5,7 +5,6 @@ function isValidCode(code) {
 
 function processData(data) {
     let normalizedValidCodes = [];
-    let validCodes = 0;
     let invalidCodes = 0;
 
     for (let i = 0; i < data.length; i++) {
@@ -16,18 +15,16 @@ function processData(data) {
         }
     }
 
-    normalizedValidCodes.sort();
-    validCodes = normalizedValidCodes.length;
-
     let result = {
         totalCodes: data.length,
-        validCodes: validCodes,
+        validCodes: normalizedValidCodes.length,
         invalidCodes: invalidCodes,
         normalizedValidCodes: normalizedValidCodes,
     };
 
     return JSON.stringify(result);
 }
+
 
 let arr = ["abc1234", "XYZ0001", "1233ABD", "A1B2C3D", "lmn9876", "DEF5678"];
 console.log(processData(arr));
