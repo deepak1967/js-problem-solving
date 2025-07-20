@@ -29,4 +29,16 @@ counter();
 counter();
 counter();
 
+var closure = function () {
+    let a = 2;
+    setTimeout(() => {
+        console.log(a++);
+
+    }, 2000)
+}
+
+closure();
+
+
+
 
