@@ -15,7 +15,7 @@ let p3 = new Promise((resolve, reject) => {
     setTimeout(() => reject("P3 Fail"), 2000);
 });
 
-// Promise.all() – Waits for all promises to fulfill; rejects if any one reject then immediatel return fail.
+// Promise.all() – Waits for all promises to fulfill; rejects if any one reject then immediate return fail.
 
 Promise.all([p1, p2, p3]).then((res) => {
     console.log("all ", res);
