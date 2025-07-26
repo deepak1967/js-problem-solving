@@ -20,4 +20,19 @@ function rotate(array, n) {
     return arr;
 }
 
-console.log(rotate(array, -5));
+// console.log(rotate(array, -5));
+
+let arr = [1, 2, 3, 4, 5]
+
+
+var rotate = function (arr, k) {
+    for (let i = 0; i < k; i++) {
+        arr.push(arr.shift());
+    }
+    return arr;
+}
+
+console.log(rotate(arr, 2));
+
+
+
