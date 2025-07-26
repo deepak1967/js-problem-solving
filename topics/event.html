@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 50px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grandParent">
+      <div id="parent">
+        <div id="child"></div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("grandParent").addEventListener(
+        "click",(e) => {
+          console.log("Grand Parent clicked!");
+          e.stopPropagation();
+        },
+        false
+      );
+
+      document.getElementById("parent").addEventListener(
+        "click", (e) => {
+          console.log("Parent captured clicked!");
+          e.stopPropagation();
+        },
+        false
+      );
+
+      document.getElementById("child").addEventListener(
+        "click",(e) => {
+          console.log("Child clicked!");
+          e.stopPropagation();
+        },
+        false
+      );
+
+      // Event Capturing vs Event Bubbling (based on third parameter):
+      // In addEventListener(event, handler, useCapture):
+
+      // If the third parameter is true → the event listener is registered for the capturing phase (top-down of DOM).
+
+      // If the third parameter is false (default) → the event listener is registered for the bubbling phase (bottom-up of DOM).
+
+      // e.stopPropagation() — What it does:
+      // Calling e.stopPropagation() inside an event handler prevents the event from bubbling up or capturing down the DOM tree.
+    </script>
+  </body>
+</html>
