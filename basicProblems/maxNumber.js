@@ -15,4 +15,18 @@ var maxNumber = function (nums) {
 const data = maxNumber(nums);
 console.log(data);
 
+var maxNumber = function (nums) {
+    let min = -Infinity;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (min < nums[i]) {
+            min = nums[i]
+        }
+    }
+    return min;
+};
+
+console.log(maxNumber(nums));
+
+
 
