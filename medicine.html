@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine</title>
+    <style>
+      .container {
+        width: 100%;
+        max-width: 950px; 
+        margin: 0 auto; 
+        padding: 10px; 
+        font-family: Arial, sans-serif;
+        color: #000;
+        background: #fff;
+        box-sizing: border-box;
+
+        .hospital-detail {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+
+          .left,
+          .right {
+            width: 120px;
+            text-align: center;
+
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+          }
+
+          .mid {
+            text-align: center;
+            flex: 1;
+
+            .title {
+              font-size: 20px;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+
+            .address {
+              font-size: 14px;
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .doctor-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start; 
+          margin-bottom: 15px;
+
+          .left,
+          .right {
+            width: 250px;
+            text-align: center;
+
+            .name {
+              font-weight: bold;
+              font-size: 15px;
+              margin-bottom: 3px;
+            }
+
+            .text {
+              font-size: 13px;
+              color: #555;
+            }
+          }
+
+          .spacer {
+            flex: 1; /* ensures spacing matches .mid of hospital-detail */
+          }
+        }
+
+        hr {
+          border: none;
+          border-top: 1px solid #000;
+          margin: 15px 0;
+        }
+
+        .patient-info {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border: 1px solid #000;
+          margin-bottom: 20px;
+
+          .col {
+            border-right: 1px solid #000;
+            padding: 8px;
+
+            &:last-child {
+              border-right: none;
+            }
+
+            .filed {
+              font-size: 13px;
+              margin-bottom: 5px;
+            }
+          }
+        }
+
+        .title {
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 15px 0;
+          text-transform: uppercase;
+        }
+
+        .table {
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+
+            thead {
+              background: #f0f0f0;
+
+              th {
+                border: 1px solid #000;
+                padding: 6px;
+                text-align: center;
+              }
+            }
+
+            tbody {
+              tr {
+                td {
+                  border: 1px solid #000;
+                  padding: 6px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+      @media print {
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          margin: 0;
+          background: #fff;
+        }
+
+        .container {
+          margin: 20px auto;
+          padding: 20px;
+          width: 100%;
+          max-width: 900px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hospital-detail">
+        <div class="left">
+          <!-- <img src="https://via.placeholder.com/100" alt="Left Logo" /> -->
+        </div>
+        <div class="mid">
+          <div class="title">City Care Hospital</div>
+          <div class="address">123 Main Road, Sector 45, Noida - 201301</div>
+        </div>
+        <div class="right">
+          <!-- <img src="https://via.placeholder.com/100" alt="Right Logo" /> -->
+        </div>
+      </div>
+
+      <div class="doctor-info">
+        <div class="left">
+          <div class="name">Dr. Ramesh Gupta</div>
+          <div class="text">MBBS, MD (General Medicine)</div>
+        </div>
+        <div class="right">
+          <div class="name">Dr. Neha Sharma</div>
+          <div class="text">BDS, Dentist</div>
+        </div>
+      </div>
+
+      <div class="patient-info">
+        <div class="col">
+          <div class="filed">Name: Deepak Kumar</div>
+          <div class="filed">Gender/Age: Male / 26</div>
+        </div>
+        <div class="col">
+          <div class="filed">UHID: UH123456</div>
+          <div class="filed">C/O: Mr. Kumar</div>
+        </div>
+        <div class="col">
+          <div class="filed">Mobile: +91 9876543210</div>
+          <div class="filed">Date & Time: 24-09-2025, 11:30 AM</div>
+        </div>
+        <div class="col">
+          <div class="filed">Ref Id: REF00123</div>
+          <div class="filed">Address: Sector 15, Noida</div>
+        </div>
+      </div>
+      <div class="title">Medicine</div>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr No.</th>
+              <th>Medicine</th>
+              <th>Unit</th>
+              <th>Dosage</th>
+              <th>When</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Paracetamol</td>
+              <td>Tablet</td>
+              <td>1-0-1</td>
+              <td>After Food</td>
+              <td>Daily</td>
+              <td>5 Days</td>
+              <td>For fever</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Amoxicillin</td>
+              <td>Capsule</td>
+              <td>1-1-1</td>
+              <td>Before Food</td>
+              <td>Daily</td>
+              <td>7 Days</td>
+              <td>Infection control</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Cough Syrup</td>
+              <td>Syrup</td>
+              <td>10 ml</td>
+              <td>After Food</td>
+              <td>Twice Daily</td>
+              <td>5 Days</td>
+              <td>Night dose only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .receipt-summary {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #000;
+
+        h2 {
+          font-size: 14px;
+          margin-bottom: 10px;
+          text-align: center;
+          border-bottom: 1px solid #000;
+          padding-bottom: 5px;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 11px;
+          th,
+          td {
+            border: 1px solid #000;
+            padding: 4px 6px;
+            text-align: center;
+          }
+
+          th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+          }
+
+          tbody tr:nth-child(even) {
+            background-color: #fafafa;
+          }
+        }
+      }
+
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .receipt-summary {
+          margin: 0 auto;
+          width: 95%;
+          page-break-inside: avoid;
+        }
+
+        table {
+          page-break-inside: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+      }
+
+      .payment-summary {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #000;
+
+        p {
+          margin: 8px 0;
+          line-height: 1.6;
+
+          .title {
+            font-weight: bold;
+            color: red;
+            margin-right: 6px;
+          }
+
+          b {
+            font-weight: bold;
+          }
+        }
+        /* .receipt {
+        }
+
+        .refund {
+        } */
+      }
+      .summary-section {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #000;
+
+        p {
+          display: flex;
+          justify-content: space-between;
+          margin: 6px 0;
+          line-height: 1.6;
+          width: 30%;
+
+          span {
+            font-weight: normal;
+          }
+
+          b {
+            font-weight: bold;
+          }
+        }
+
+        .section-title {
+          font-size: 18px;
+          font-weight: bold;
+          color: green;
+          margin: 20px 0 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="receipt-summary">
+      <h2>Receipt Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Receipt No</th>
+            <th>Date</th>
+            <th>Patient Nm</th>
+            <th>Total</th>
+            <th>Discount</th>
+            <th>Receipt Amount</th>
+            <th>Received Amount</th>
+            <th>Due Amt</th>
+            <th>Username</th>
+            <th>Doctor</th>
+            <th>PayMode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GEN</td>
+            <td>R001</td>
+            <td>08/08/2023</td>
+            <td>John Doe</td>
+            <td>1500</td>
+            <td>100</td>
+            <td>1400</td>
+            <td>1400</td>
+            <td>0</td>
+            <td>admin</td>
+            <td>Dr. Smith</td>
+            <td>Cash</td>
+          </tr>
+          <tr>
+            <td>GEN</td>
+            <td>R002</td>
+            <td>08/08/2023</td>
+            <td>Jane Roe</td>
+            <td>2000</td>
+            <td>200</td>
+            <td>1800</td>
+            <td>1500</td>
+            <td>300</td>
+            <td>admin</td>
+            <td>Dr. Adams</td>
+            <td>PhonePe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="receipt-summary">
+      <h2>Group Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Group Name</th>
+            <th>Total</th>
+            <th>Discount</th>
+            <th>Net Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Advance Payment</td>
+            <td>213235</td>
+            <td>0.00</td>
+            <td>400</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="payment-summary">
+      <p class="receipt">
+        <span class="title">Receipt</span>
+        Net Amount = <b>253,800.00/-</b> - Rec Amount = <b>253,800.00/-</b> -
+        Dis. Amount = <b>1,150.00/-</b> - Tax Amount = <b>0.00/-</b> - S/c
+        Amount = <b>0.00/-</b> - Due Amount = <b>0.00/-</b>
+      </p>
+
+      <p class="refund">
+        <span class="title">Refund</span>
+        Net Amount = <b>3,900.00/-</b> - Dis. Amount = <b>0.00/-</b> - Tax
+        Amount = <b>0.00/-</b> - S/c Amount = <b>0.00/-</b> - TOTAL Refund
+        Amount = <b>3,900.00/-</b>
+      </p>
+    </div>
+    <div class="summary-section">
+      <p>
+        <span>Total Receipt Amt</span>
+        <b>253,800.00/-</b>
+      </p>
+      <p>
+        <span>Total Refund Amt</span>
+        <b>3,900.00/-</b>
+      </p>
+      <p>
+        <span>Total</span>
+        <b>249,900.00/-</b>
+      </p>
+
+      <h3 class="section-title">Due Amount Rec</h3>
+
+      <p>
+        <span>Total Net Receipt Amt</span>
+        <b>249,900.00/-</b>
+      </p>
+      <p>
+        <span>Total Due Rec Amt</span>
+        <b>0.00/-</b>
+      </p>
+      <p>
+        <span>Total</span>
+        <b>249,900.00</b>
+      </p>
+
+      <p>
+        <span>Total Amt</span>
+        <b>249,900.00</b>
+      </p>
+      <p>
+        <span>Total Expance Amt</span>
+        <b>0.00</b>
+      </p>
+      <p>
+        <span>Total Net Income</span>
+        <b>249,900.00</b>
+      </p>
+    </div>
+  </body>
+</html>
