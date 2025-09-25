@@ -1,3 +1,27 @@
+let array = [1, 4, 2, 5, 6, 6, 7, 8, 43, 2, 2, 1, 34, 6, 6,];
+
+var removeDuplicate = function (arr) {
+    let newArr = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let duplicate = false;
+
+        for (let j = 0; j < newArr.length; j++) {
+            if (arr[i] === newArr[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+
+        if (!duplicate) newArr.push(arr[i]);
+    }
+
+    return newArr;
+}
+
+console.log(removeDuplicate(arr));
+
+
 let num = [2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
 
 function removeDuplicate(num) {
