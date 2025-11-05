@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill Receipt</title>
+    <link rel="stylesheet" href="bill.css" />
+    <style>
+      @page {
+        size: A5 portrait;
+        margin: 0;
+      }
+
+      body {
+        margin: 0;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+      }
+
+      .receipt {
+        width: 95%;
+        background: #fff;
+        margin: 0 auto;
+        padding: 8px;
+        border: 1px solid #ccc;
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 5px;
+
+          .logo {
+            width: 70px;
+            margin-right: 15px;
+
+            img {
+              width: 100%;
+              height: auto;
+              object-fit: contain;
+            }
+          }
+
+          .hospital-info {
+            text-align: left;
+            flex: 1;
+
+            h2 {
+              margin: 0 0 5px;
+              font-size: 16px;
+            }
+
+            p {
+              margin: 2px 0;
+              font-size: 10px;
+            }
+          }
+        }
+
+        .title {
+          text-align: center;
+          border: 1px solid #ccc;
+          padding: 2px 0;
+          margin: 5px 0;
+          font-weight: bold;
+          font-size: 12px;
+        }
+
+        .content {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+
+          .left,
+          .right {
+            width: 49.5%;
+
+            p {
+              margin: 0;
+              font-size: 10px;
+              padding: 2px;
+              box-sizing: border-box;
+              border: 1px solid #dcdada;
+              border-top: none;
+            }
+
+            p:first-child {
+              border-top: 1px solid #dcdada;
+            }
+          }
+
+          .right {
+            .barcode {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .barcode-box {
+                width: 100%;
+                height: 25px;
+                border: 1px dashed #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 8px;
+                color: #666;
+              }
+            }
+          }
+        }
+
+        hr {
+          border: none;
+          border-top: 1px solid #ccc;
+          margin: 6px 0;
+        }
+
+        .services {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 0;
+
+          th,
+          td {
+            padding: 3px 0;
+            font-size: 10px;
+          }
+
+          th:first-child,
+          td:first-child {
+            text-align: left;
+            padding-left: 8px;
+          }
+
+          th:last-child,
+          td:last-child {
+            text-align: right;
+            padding-right: 8px;
+          }
+
+          th:nth-child(2),
+          td:nth-child(2),
+          th:nth-child(3),
+          td:nth-child(3),
+          th:nth-child(4),
+          td:nth-child(4),
+          th:nth-child(5),
+          td:nth-child(5) {
+            text-align: center;
+          }
+        }
+
+        .summary {
+          margin-top: 10px;
+          width: 100%;
+          font-size: 10px;
+
+          .summary-content {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+
+            .payment-list {
+              flex: 1;
+              max-width: 60%;
+
+              h4 {
+                margin: 0 0 10px 0;
+                font-size: 10px;
+                font-weight: bold;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 3px;
+              }
+
+              .payment-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 8px;
+
+                th,
+                td {
+                  padding: 2px;
+                  text-align: center;
+                  border: 1px solid #ddd;
+                  font-size: 8px;
+                }
+
+                th {
+                  background: #f5f5f5;
+                  font-weight: bold;
+                }
+
+                tbody tr:nth-child(even) {
+                  background: #f9f9f9;
+                }
+              }
+            }
+
+            .summary-details {
+              flex: 1;
+              max-width: 40%;
+
+              .summary-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 3px 0;
+                border-bottom: 1px solid #f0f0f0;
+
+                .label {
+                  flex: 1;
+                  text-align: right;
+                  padding-right: 16px;
+                  font-size: 10px;
+                  font-weight: 600;
+                  color: #333;
+                }
+
+                .value {
+                  text-align: center;
+                  font-weight: bold;
+                  font-size: 10px;
+                  padding-right: 0.4rem;
+                  min-width: 70px;
+                }
+              }
+
+              .grand-total {
+                border-top: 1px solid #ccc;
+                font-size: 10px;
+                font-weight: bold;
+                border-bottom: none;
+
+                &.due-amount {
+                  color: #d32f2f;
+                  background: #fff5f5;
+                  padding: 4px 8px;
+                  margin: 4px 0;
+                  border-radius: 4px;
+                }
+
+                &.no-due {
+                  color: #388e3c;
+                  background: #f0fff4;
+                  padding: 4px 8px;
+                  margin: 4px 0;
+                  border-radius: 4px;
+                }
+              }
+            }
+          }
+        }
+
+        .amount-signature-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-top: 1.2rem;
+          border-bottom: 1px solid #ccc;
+          margin-bottom: 2px;
+
+          .amount-in-words {
+            width: 60%;
+            border: 1px solid #ccc;
+            padding: 4px;
+            border-bottom: none;
+            margin: 0;
+          }
+
+          .signature-block {
+            width: 35%;
+            text-align: center;
+
+            .signature-line {
+              border-top: 1px solid #000;
+              margin-bottom: 4px;
+              width: 100%;
+              height: 1px;
+            }
+
+            .signature-label {
+              font-size: 10px;
+            }
+          }
+        }
+
+        .footer {
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            margin: 2px 0;
+          }
+        }
+      }
+
+      /* ----------------- PRINT STYLES ----------------- */
+      @media print {
+        body {
+          margin: 0;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .receipt {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          page-break-inside: avoid;
+        }
+
+        .summary-content {
+          flex-direction: row !important;
+          gap: 15px !important;
+        }
+
+        .payment-list {
+          max-width: 55% !important;
+        }
+
+        .summary-details {
+          max-width: 45% !important;
+        }
+
+        .payment-table th,
+        .payment-table td {
+          font-size: 8px !important;
+          padding: 4px 2px !important;
+        }
+      }
+
+      /* ----------------- RESPONSIVE ----------------- */
+      @media screen and (max-width: 768px) {
+        .summary-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .payment-list,
+        .summary-details {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="receipt">
+      <div class="header">
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+            alt="Hospital Logo"
+          />
+        </div>
+        <div class="hospital-info">
+          <h2>City Health Hospital</h2>
+          <p>12, Green Park, New Delhi, India</p>
+          <p>Contact: +91 98765 43210</p>
+        </div>
+      </div>
+
+      <div class="title">Bill Receipt</div>
+
+      <div class="content">
+        <div class="left">
+          <p><strong>Name:</strong> Mr. Rohan Sharma</p>
+          <p><strong>UHID:</strong> UHID-10234</p>
+          <p><strong>Age/Sex:</strong> 32 / Male</p>
+          <p><strong>Mobile No:</strong> 9876543210</p>
+          <p><strong>Address:</strong> 12, Green Park, Delhi</p>
+          <p><strong>C/O:</strong> Neha Sharma</p>
+        </div>
+
+        <div class="right">
+          <p><strong>Receipt No:</strong> PAY-778899</p>
+          <p><strong>Patient Type:</strong> OPD</p>
+          <p><strong>Doctor:</strong> Dr. Amit Verma</p>
+          <p><strong>Co-Doctor:</strong> Dr. Neha Gupta</p>
+          <p><strong>Date:</strong> 31/10/2025</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <table class="services">
+        <thead>
+          <tr>
+            <th>Service Type</th>
+            <th>Service Name</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consultation</td>
+            <td>General Checkup</td>
+            <td>1</td>
+            <td>₹500.00</td>
+          </tr>
+          <tr>
+            <td>Lab Test</td>
+            <td>Blood Test</td>
+            <td>1</td>
+            <td>₹1000.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="summary">
+        <div class="summary-row">
+          <span class="label">Total Amount</span>
+          <span class="value">₹1500</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Discount</span>
+          <span class="value">₹200</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Final Amount</span>
+          <span class="value">₹1300</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Received Amount</span>
+          <span class="value">₹1300</span>
+        </div>
+        <div class="summary-row grand-total no-due">
+          <span class="label">Due Amount</span>
+          <span class="value">₹0</span>
+        </div>
+      </div>
+
+      <div class="amount-signature-section">
+        <div class="amount-in-words">
+          <b>Amount in Words:</b> One Thousand Three Hundred Only
+        </div>
+
+        <div class="signature-block">
+          <div class="signature-line"></div>
+          <div class="signature-label">Authorised Signature</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Thanks for Visit</p>
+        <p>For City Health Hospital</p>
+      </div>
+    </div>
+
+    <script src="bill.js"></script>
+  </body>
+</html>
