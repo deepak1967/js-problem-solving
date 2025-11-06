@@ -48,4 +48,25 @@ const sum = number.reduce((prev, item) => {
 
 console.log(sum);
 
+const users = [
+    { name: "John", role: "Admin" },
+    { name: "Sarah", role: "User" },
+    { name: "Mike", role: "Admin" },
+    { name: "Emma", role: "User" },
+    { name: "David", role: "Manager" }
+];
+
+const group = users.reduce((acc, user) => {
+    const key = user.role;
+
+    if (!acc[key]) {
+        acc[key] = [];
+    }
+    acc[key].push(user);
+    return acc;
+}, {})
+
+console.log(group);
+
+
 
