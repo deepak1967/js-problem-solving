@@ -49,3 +49,59 @@ var arrayOfArraySort = function (arr) {
     }
     return arr;
 }
+
+
+
+const users = [
+    {
+        id: 1,
+        name: "John Doe",
+        email: "john.doe@example.com",
+        phone: "+1 9876543210",
+        role: "Admin",
+        status: "Active"
+    },
+    {
+        id: 2,
+        name: "Sarah Wilson",
+        email: "sarah.wilson@example.com",
+        phone: "+1 8765432109",
+        role: "Manager",
+        status: "Inactive"
+    },
+    {
+        id: 3,
+        name: "Michael Smith",
+        email: "michael.smith@example.com",
+        phone: "+1 7654321098",
+        role: "User",
+        status: "Active"
+    },
+    {
+        id: 4,
+        name: "Emily Johnson",
+        email: "emily.johnson@example.com",
+        phone: "+1 6543210987",
+        role: "User",
+        status: "Pending"
+    },
+    {
+        id: 5,
+        name: "David Brown",
+        email: "david.brown@example.com",
+        phone: "+1 5432109876",
+        role: "Support",
+        status: "Active"
+    }
+];
+
+const arr1 = ["Blue", "Humpback", "Beluga"];
+const arr2 = ["Blue", "Humpback", "Beluga"];
+
+const sortedUser = users.sort((a, b) => b.name - a.name);
+const arr3 = arr1.concat(arr2)
+const arr4 = users.some((item) => item.role === 'User');
+
+const arr5 = [9, 8, [3, 4, [5, 7]], [1, 2]]
+console.log(arr5.flat(Infinity));
+
