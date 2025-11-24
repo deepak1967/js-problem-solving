@@ -1,5 +1,7 @@
 let arr = [4, 5, 2, 1, 7, 6, 9, 8];
-let str = ["lavi", "pari", "krishna", "deepak", "poonam", "ramesh"];
+let str = ["lavi", "pari", "krishna", "deepak", "poonam", "ramesh"]; 
+// same appraoch for string as number array;
+
 var arrSort = function (array) {
     // let arr = s.split("");  // for single string
     let arr = array;
