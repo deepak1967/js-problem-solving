@@ -25,3 +25,15 @@ function add(a) {
 }
 console.log(add(1)(2)(3)(4)(5)()); // Output: 15
 
+// common function 
+
+function sum(a, b) {
+  if (a && b) return a + b
+  return function (b) {
+    return a + b;
+  }
+}
+
+console.log(sum(8, 9))
+console.log(sum(8)(9))
+
