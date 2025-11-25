@@ -7,4 +7,4 @@ var isPalindrome = function (s) {
     return string === reverse;
 };
 
-console.log(isPalindrome("0P"));
+console.log(isPalindrome(s));
