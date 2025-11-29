@@ -9,6 +9,16 @@ var maxNumber = function (nums) {
             num = nums[i + 1];
         }
     }
+
+    // OR
+
+    // let num = 0;
+
+    // for (let i = 0; i < nums.length; i++) {
+    //     if (nums[i] > num) {
+    //         num = nums[i]
+    //     }
+    // }
     return num;
 };
 
